@@ -1,0 +1,21 @@
+R, C = map(int, input().split())
+matrix = []
+
+for _ in range(R):
+    row = list(map(int, input().split()))
+    matrix.append(row)
+
+Q = int(input())
+
+queries = []
+for _ in range(Q):
+    r1, c1, r2, c2 = map(int, input().split())
+    queries.append((r1, c1, r2, c2))
+
+for query in queries:
+    r1, c1, r2, c2 = query
+    result = 0
+    for i in range(r1 - 1, r2):
+        for j in range(c1 - 1, c2):
+            result |= matrix[i][j]
+    print(result)
